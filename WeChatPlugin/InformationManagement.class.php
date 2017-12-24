@@ -41,12 +41,11 @@ class InformationManagement extends WeChat
                         case 'unsubscribe':
                             $handleEvent->unsubscribe($data);
                             break;
-
-                    }
-                    if ($data->Event == 'subscribe') {
-                        file_get_contents('1.txt',$data);
-
-                    }
+						//获取地理位置(尚未实现)
+						case 'location':
+							$handleEvent->location($data);
+							break;
+					}
                     break;
                 case 'text':
                     echo self::sendTestMessage($data, '吹泡泡的鱼');
@@ -66,7 +65,7 @@ class InformationManagement extends WeChat
      * @param $message 消息内容
      * @return string 返回拼接好的文本消息模板
      */
-    public static function sendTestMessage($object, $message)
+    public static function sendTestMessage($object, $message = '')
     {
         $xmlTpl = "<xml>
                 <ToUserName><![CDATA[%s]]></ToUserName> 

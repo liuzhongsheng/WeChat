@@ -110,8 +110,7 @@ class WeChatUser extends WeChat
         ];
         return $this->post($url, json_encode($data));
     }
-
-
+	
     /**
      * 拉黑或者取消拉黑公用方法
      * @param array $user_list 数据
@@ -136,5 +135,6 @@ class WeChatUser extends WeChat
             'openid_list' => $user_list
         ];
         return $this->post($url, json_encode($data));
-    }
+	}
+
 }

@@ -40,6 +40,13 @@ class HandleEvent extends WeChat
 
     }
 
+	//获取用户地理位置(尚未实现)
+	public function location($object)
+	{
+		//echo InformationManagement::sendTestMessage($object);
+		//exit;
+	}
+
     /**
      *
      * @param $key 操作名称
