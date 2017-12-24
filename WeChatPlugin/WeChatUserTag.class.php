@@ -34,4 +34,67 @@ class WeChatUserTag extends WeChat
 		return $this->get($url);
 	}
 
+	//更新标签
+	public function updateTag()
+	{
+		$url = $this->config['serve_url'].'tags/update?access_token='.$this->accessToken;
+		$data = [
+			'tag' => [
+				'name' => $name
+			]
+		];
+		return $this->post($url, json_encode($data, JSON_UNESCAPED_UNICODE));
+	}
+
+	//删除标签
+	public function deleteTag()
+	{
+		$url = $this->config['serve_url'].'tags/delete?access_token='.$this->accessTokenl;
+		$data = [
+			'tagid' => $tagId,
+			'next_openid' => $next_openid
+		];
+		return $this->post($url, json_encode($data, JSON_UNESCAPED_UNICODE));
+	}
+	// 获取标签下粉丝列表
+	public function getFansList()
+	{
+		$url = $this->config['serve_url'].'user/tag/get?access_token='.$this->accessTokenl;
+		$data = [
+			'tagid' => $tagId,
+			'next_openid' => $next_openid
+		];
+		return $this->post($url, json_encode($data, JSON_UNESCAPED_UNICODE));
+	}
+	//为用户设置标签
+	public function setUserTag($tagId, $openIdList)
+	{
+		$url = $this->config['serve_url'].'tags/members/batchtagging?access_token='.$this->accessToken;
+		$data = [
+			'tagid'			=> $tagId,
+			'openid_list'   => $opendIdList
+		];
+		return $this->post($url, json_encode($data, JSON_UNESCAPED_UNICODE));
+	}
+	
+	//批量为用户取消标签
+	public function cancelUserTag()
+	{
+		$url = $this->config['serve_url'].'tags/members/batchuntagging?access_token='.$this->accessToken;
+		$data = [
+			'tagid'			=> $tagId,
+			'openid_list'   => $opendIdList
+		];
+		return $this->post($url, json_encode($data, JSON_UNESCAPED_UNICODE);
+	}
+
+	//获取用户身上的标签列表
+	public function getUserTag()
+	{
+		$url = $this->config['serve_url'].'tags/getidlist?access_token='.$this->accessToken;
+		$data = [
+			'openid' = $openid
+		];
+		return $this->post($url, json_encode($data);
+	}
 }

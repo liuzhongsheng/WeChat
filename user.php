@@ -9,7 +9,7 @@
 // | Author: 吹泡泡的鱼 <996674366@qq.com>
 // +---------
 
-
+date_default_timezone_set("PRC");
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
@@ -34,11 +34,14 @@ $object = new WeChatUser();
 // $data = $object->getBlackList();
 
 //拉黑用户
- $data = $object->batchBlackList(['ogCv9vi3VVdDWWEZ5mYUwBw-S_iI','ogCv9vlDNxCNukXg7nDQ8XYyPeso']);
+// $data = $object->batchBlackList(['ogCv9vi3VVdDWWEZ5mYUwBw-S_iI','ogCv9vlDNxCNukXg7nDQ8XYyPeso']);
 
 //取消拉黑用户
 // $data = $object->batchunBlackList(['ogCv9vlDNxCNukXg7nDQ8XYyPeso']);
 
 //设置备注
 // $data = $object->updateRemark('', '妹纸');
-die($data);
+
+//添加用户标签
+$data = $object->createTags('测试标签2');
+var_dump($data);
