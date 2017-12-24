@@ -137,4 +137,4 @@ class WeChatUser extends WeChat
         return $this->post($url, json_encode($data));
 	}
 
-}svn://svn.weidijia.cn/web/php/suihui
+}
