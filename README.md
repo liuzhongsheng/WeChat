@@ -27,6 +27,7 @@ echo $obj->createMenu($value);
 
 消息相关
 <pre>
+$obj=new WeChat();
 if(!isset($_GET["echostr"])){
     #创建获取事件
     $obj->getEvent();

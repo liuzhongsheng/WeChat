@@ -20,7 +20,7 @@ class WeChatMenu extends WeChat
     public function createMenu($value)
     {
         //请求地址
-        $url = $this->config['serve_url'].'create?access_token='.$this->accessToken;
+        $url = $this->config['serve_url'].'menu/create?access_token='.$this->accessToken;
         return $this->post($url, json_encode($value,JSON_UNESCAPED_UNICODE));
     }
 
